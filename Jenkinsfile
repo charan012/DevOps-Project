@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent slavenode
     
     environment {
         DOCKER_USERNAME = 'charan012'
