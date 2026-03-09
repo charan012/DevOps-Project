@@ -3,9 +3,9 @@ pipeline {
     
     environment {
         DOCKER_USERNAME = 'charan012'
-        DOCKER_REPO = 'DevOps-Project'
-        DOCKER_IMAGE = "${DOCKER_USERNAME}/${DOCKER_REPO}:${BUILD_NUMBER}"
-        DOCKER_IMAGE_LATEST = "${DOCKER_USERNAME}/${DOCKER_REPO}:latest"
+        DOCKER_REPO = 'devops-repo'
+        DOCKER_IMAGE = "${charan012}/${devops-repo}:${BUILD_NUMBER}"
+        DOCKER_IMAGE_LATEST = "${charan012}/${devops-repo}:latest"
     }
     
     stages {
@@ -47,9 +47,9 @@ pipeline {
             steps {
                 echo "Deploying container..."
                 sh '''
-                    docker stop cicd-app || true
-                    docker rm cicd-app || true
-                    docker run -d -p 8081:8080 --name cicd-app ${DOCKER_IMAGE_LATEST}
+                    docker stop dev-web-app || true
+                    docker rm dev-web-app || true
+                    docker run -itd -p 8081:8080 --name dev-web-app ${DOCKER_IMAGE_LATEST}
                     sleep 3
                     docker ps
                 '''
