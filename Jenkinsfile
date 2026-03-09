@@ -1,13 +1,6 @@
 pipeline {
     agent slavenode
-    
-    environment {
-        DOCKER_USERNAME = 'charan012'
-        DOCKER_REPO = 'devops-repo'
-        DOCKER_IMAGE = "${charan012}/${devops-repo}:${BUILD_NUMBER}"
-        DOCKER_IMAGE_LATEST = "${charan012}/${devops-repo}:latest"
-    }
-    
+        
     stages {
         stage('Checkout') {
             steps {
